@@ -167,6 +167,12 @@ public class EmployeeController {
         return employeeService.filterCountEmployeesByCountry(country);
     }
 
+    @GetMapping("/users/by-country-lowercase")
+    @ResponseStatus(HttpStatus.OK)
+    List<Employee> allEmployeeByCountryStartsWithLowerCase() {
+        return employeeService.filterAllByCountryStartsWithLowerCase();
+    }
+
     @PatchMapping("/users/ukrainians")
     @ResponseStatus(HttpStatus.OK)
     public Set<String> sendEmailsAllUkrainian() {
