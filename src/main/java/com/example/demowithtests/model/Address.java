@@ -1,5 +1,6 @@
 package com.example.demowithtests.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -28,4 +29,9 @@ public class Address {
 
     @Column(name = "street")
     private String street;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "employee_id")
+    @JsonIgnore
+    private Employee employee;
 }

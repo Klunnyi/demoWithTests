@@ -11,6 +11,7 @@ import com.example.demowithtests.util.annotations.entity.ToLowerCase;
 import com.example.demowithtests.util.exception.ResourceNotFoundException;
 import com.example.demowithtests.util.exception.ResourceWasDeletedException;
 import jakarta.persistence.EntityNotFoundException;
+import jakarta.persistence.Transient;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
@@ -18,6 +19,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -214,6 +216,7 @@ public class EmployeeServiceBean implements EmployeeService {
     }
 
     @Override
+    @Transactional
     public List<Employee> filterByCountry(String country) {
         return employeeRepository.findEmployeesByCountry(country);
     }
@@ -318,5 +321,15 @@ public class EmployeeServiceBean implements EmployeeService {
                     entity.setDocument(null);
             return employeeRepository.save(entity);
         }).orElseThrow(() -> new EntityNotFoundException("Employee not found with id = " + id));
+    }
+
+    @Override
+    public List<Employee> findAll() {
+        return employeeRepository.findAll();
+    }
+
+    @Override
+    public List<Employee> findAllFetch() {
+        return employeeRepository.findAllFetch();
     }
 }

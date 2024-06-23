@@ -10,6 +10,7 @@ import com.example.demowithtests.service.EmployeeServiceEM;
 import com.example.demowithtests.service.document.DocumentService;
 import com.example.demowithtests.util.mappers.DocumentMapper;
 import com.example.demowithtests.util.mappers.EmployeeMapper;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
@@ -238,5 +239,20 @@ public class EmployeeController {
         Employee employee = employeeService.removeDocument(id);
         log.debug("removeDocumentFromUser() EmployeeController - end: id = {}", id);
         return employee;
+    }
+
+    @JsonIgnoreProperties(value = {"notes"})
+    @GetMapping("/users/all")
+    public List<Employee> getAll() {
+        List<Employee> employees = employeeService.findAll();
+        for (Employee user : employees) {
+            user.setAddresses(null);  // without don't work json error
+        }
+        return employees;
+    }
+
+    @GetMapping("/users/fetch/all")
+    public List<Employee> getAllFetch() {
+        return employeeService.findAllFetch();
     }
 }

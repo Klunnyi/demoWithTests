@@ -18,8 +18,9 @@ import java.util.Optional;
 @Repository
 public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
 
-    @Query(value = "select e from Employee e where e.country =?1")
-    @EntityGraph(attributePaths = {"addresses"})
+    //@Query(value = "select e from Employee e where e.country =?1")
+    //@EntityGraph(value = "employee-entity-graph-with-addresses")
+    @EntityGraph(value = "employee-entity-graph-no-addresses", type = EntityGraph.EntityGraphType.FETCH, attributePaths = {"addresses"})
     List<Employee> findEmployeesByCountry(String country);
 
     //@Query("SELECT COUNT(e) FROM Employee e WHERE e.country = :country") //jpql
@@ -101,5 +102,10 @@ public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
     <S extends Employee> List<S> saveAll(Iterable<S> entities);
 
     Boolean existsEmployeeByEmail(String email);
+
+    List<Employee> findAll();
+
+    @Query("SELECT DISTINCT p FROM Employee p JOIN FETCH p.addresses")
+    List<Employee> findAllFetch();
 
 }

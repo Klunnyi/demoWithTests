@@ -10,10 +10,9 @@ spring:
     driver-class-name: org.postgresql.Driver
     #url: jdbc:postgresql://localhost:5432/employee
     # For dockerization
-    url: jdbc:postgresql://localhost:5432/employee
+    url: jdbc:postgresql://db:5432/employee
     username: postgres
-    password: 870EVO
-
+    password: postgres
   # JPA properties
   jpa:
     hibernate:
@@ -42,7 +41,7 @@ logging:
     com.example.demowithtests: debug
 # Server configuration
 server:
-  port: 8080 #set your port
+  port: 8089 #set your port
 # Swagger configuration
 springdoc:
   swagger-ui:
@@ -52,12 +51,10 @@ springdoc:
 management: # spring actuator
   endpoints:
     #enabled-by-default: true # If changed to false, you can enable separate functionality as indicated below
-  #endpoint: # here
-   # health:
+    #endpoint: # here
+    # health:
     #  enabled: true
     web:
       exposure:
-       # exclude: "*"
+        # exclude: "*"
         include: "*"
-
-

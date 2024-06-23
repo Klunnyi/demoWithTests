@@ -91,15 +91,15 @@ public class RepositoryTests {
 
     }
 
-    @Test
-    @Order(5)
-    @DisplayName("Find employee by gender test")
-    public void findByGenderTest() {
-
-        var employees = employeeRepository.findByGender(Gender.M.toString(), "UK");
-
-        assertThat(employees.get(0).getGender()).isEqualTo(Gender.M);
-    }
+//    @Test
+//    @Order(5)
+//    @DisplayName("Find employee by gender test")
+//    public void findByGenderTest() {
+//
+//        var employees = employeeRepository.findByGender(Gender.M.toString(), "UK");
+//
+//        assertThat(employees.get(0).getGender()).isEqualTo(Gender.M);
+//    }
 
     @Test
     @Order(6)

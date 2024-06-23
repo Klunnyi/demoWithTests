@@ -73,4 +73,8 @@ public interface EmployeeService {
 
     Employee removeDocument(Integer id);
 
+    List<Employee> findAll();
+
+    List<Employee> findAllFetch();
+
 }

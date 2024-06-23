@@ -3,6 +3,7 @@ package com.example.demowithtests.model;
 import com.example.demowithtests.util.annotations.entity.Name;
 import com.example.demowithtests.util.annotations.entity.ToLowerCase;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -16,6 +17,7 @@ import java.util.Set;
 @Setter
 @Getter
 @Builder
+@NamedEntityGraph(name = "employee-entity-graph", attributeNodes = @NamedAttributeNode("addresses"))
 public final class Employee {
 
     @Id
@@ -30,10 +32,11 @@ public final class Employee {
     @ToLowerCase
     private String email;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinColumn(name = "employee_id")
-    @OrderBy("id desc, country asc")
-    @JsonIgnore
+    @JsonManagedReference
+    @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+//    @JoinColumn(name = "employee_id")
+//    @OrderBy("id desc, country asc")
+//    @JsonIgnore
     private Set<Address> addresses = new HashSet<>();
 
     @Enumerated(EnumType.STRING)
