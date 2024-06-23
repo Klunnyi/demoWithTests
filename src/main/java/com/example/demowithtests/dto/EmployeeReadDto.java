@@ -1,6 +1,6 @@
 package com.example.demowithtests.dto;
 
-import com.example.demowithtests.domain.Gender;
+import com.example.demowithtests.model.Gender;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.v3.oas.annotations.media.Schema;
 

@@ -1,4 +1,4 @@
-package com.example.demowithtests.domain;
+package com.example.demowithtests.model;
 
 import com.example.demowithtests.util.annotations.entity.Name;
 import com.example.demowithtests.util.annotations.entity.ToLowerCase;
@@ -40,4 +40,9 @@ public final class Employee {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "document_id", referencedColumnName = "id")
     private Document document;
+
+    public Employee(String name, String email) {
+        this.name = name;
+        this.email = email;
+    }
 }

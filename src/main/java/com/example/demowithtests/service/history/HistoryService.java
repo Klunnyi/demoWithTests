@@ -1,7 +1,7 @@
 package com.example.demowithtests.service.history;
 
-import com.example.demowithtests.domain.Document;
-import com.example.demowithtests.domain.History;
+import com.example.demowithtests.model.Document;
+import com.example.demowithtests.model.History;
 
 public interface HistoryService {
     History create(History history);

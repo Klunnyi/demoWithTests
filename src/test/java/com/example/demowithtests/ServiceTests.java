@@ -1,8 +1,8 @@
 package com.example.demowithtests;
 
-import com.example.demowithtests.domain.Document;
-import com.example.demowithtests.domain.Employee;
-import com.example.demowithtests.domain.Gender;
+import com.example.demowithtests.model.Document;
+import com.example.demowithtests.model.Employee;
+import com.example.demowithtests.model.Gender;
 import com.example.demowithtests.repository.EmployeeRepository;
 import com.example.demowithtests.service.EmployeeServiceBean;
 import com.example.demowithtests.service.history.HistoryService;

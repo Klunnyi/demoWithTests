@@ -1,8 +1,8 @@
 package com.example.demowithtests;
 
-import com.example.demowithtests.domain.Address;
-import com.example.demowithtests.domain.Employee;
-import com.example.demowithtests.domain.Gender;
+import com.example.demowithtests.model.Address;
+import com.example.demowithtests.model.Employee;
+import com.example.demowithtests.model.Gender;
 import com.example.demowithtests.repository.EmployeeRepository;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.*;

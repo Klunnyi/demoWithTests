@@ -1,7 +1,7 @@
 package com.example.demowithtests.service.history;
 
-import com.example.demowithtests.domain.Document;
-import com.example.demowithtests.domain.History;
+import com.example.demowithtests.model.Document;
+import com.example.demowithtests.model.History;
 import com.example.demowithtests.repository.HistoryRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;

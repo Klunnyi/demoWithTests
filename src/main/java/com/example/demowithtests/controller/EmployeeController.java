@@ -1,7 +1,7 @@
-package com.example.demowithtests.web;
+package com.example.demowithtests.controller;
 
-import com.example.demowithtests.domain.Document;
-import com.example.demowithtests.domain.Employee;
+import com.example.demowithtests.model.Document;
+import com.example.demowithtests.model.Employee;
 import com.example.demowithtests.dto.DocumentDto;
 import com.example.demowithtests.dto.EmployeeDto;
 import com.example.demowithtests.dto.EmployeeReadDto;
@@ -159,6 +159,12 @@ public class EmployeeController {
     @ResponseStatus(HttpStatus.OK)
     public List<Employee> getByCountry(@RequestParam(required = true) String country) {
         return employeeService.filterByCountry(country);
+    }
+
+    @GetMapping("/users/countryByCountry")
+    @ResponseStatus(HttpStatus.OK)
+    public Integer countEmployeesByCountry(@RequestParam(required = true) String country) {
+        return employeeService.filterCountEmployeesByCountry(country);
     }
 
     @PatchMapping("/users/ukrainians")

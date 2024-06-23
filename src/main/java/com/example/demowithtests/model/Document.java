@@ -1,5 +1,6 @@
-package com.example.demowithtests.domain;
+package com.example.demowithtests.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
@@ -20,16 +21,17 @@ public final class Document {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(nullable = false)
-    private String number;
-
     @Builder.Default
     private String uuid = UUID.randomUUID().toString();
 
+    @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
     private LocalDateTime expireDate;
 
     @Builder.Default
     private Boolean isHandled = Boolean.FALSE;
+
+    @Column(nullable = false)
+    private String number;
 
     @ToString.Exclude
     @OneToOne(mappedBy = "document")
@@ -42,4 +44,11 @@ public final class Document {
     /*@OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "image_id", referencedColumnName = "id")
     private Image image;*/
+
+    public Document(String uuid, LocalDateTime expireDate, Boolean isHandled, String number) {
+        this.uuid = uuid;
+        this.expireDate = expireDate;
+        this.isHandled = isHandled;
+        this.number = number;
+    }
 }

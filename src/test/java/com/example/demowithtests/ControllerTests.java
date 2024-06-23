@@ -1,12 +1,12 @@
 package com.example.demowithtests;
 
-import com.example.demowithtests.domain.Employee;
+import com.example.demowithtests.model.Employee;
 import com.example.demowithtests.dto.EmployeeDto;
 import com.example.demowithtests.dto.EmployeeReadDto;
 import com.example.demowithtests.service.EmployeeService;
 import com.example.demowithtests.service.EmployeeServiceEM;
 import com.example.demowithtests.util.mappers.EmployeeMapper;
-import com.example.demowithtests.web.EmployeeController;
+import com.example.demowithtests.controller.EmployeeController;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;

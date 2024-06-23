@@ -1,6 +1,6 @@
 package com.example.demowithtests.dto;
 
-import com.example.demowithtests.domain.Gender;
+import com.example.demowithtests.model.Gender;
 import com.example.demowithtests.util.annotations.dto.BlockedEmailDomains;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -58,5 +58,9 @@ public record EmployeeDto(
         this.gender = gender;
         this.addresses = addresses != null ? addresses : new HashSet<>();
 
+    }
+
+    public EmployeeDto(String name, String email) {
+        this(0, name, "", email, null, null, Set.of());
     }
 }

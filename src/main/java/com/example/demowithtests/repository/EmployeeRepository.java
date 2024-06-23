@@ -1,6 +1,6 @@
 package com.example.demowithtests.repository;
 
-import com.example.demowithtests.domain.Employee;
+import com.example.demowithtests.model.Employee;
 import jakarta.validation.constraints.NotNull;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -38,7 +38,7 @@ public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
             "from users " +
             "join addresses " +
             "on users.id  = addresses.employee_id " +
-            "where users.gender = :gender and addresses.country = :country", nativeQuery = true)*/
+            "where users.gender = :gender and addresses.country = :country", nativeQuery = true) */
     List<Employee> findByGender(String gender, String country);
 
     @Query(value = "SELECT * FROM users WHERE SUBSTRING(country, 1, 1) = LOWER(SUBSTRING(country, 1, 1))",
@@ -99,5 +99,7 @@ public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
     @Transactional
     @EntityGraph(type = EntityGraph.EntityGraphType.FETCH, value = "user_entity-graph")
     <S extends Employee> List<S> saveAll(Iterable<S> entities);
+
+    Boolean existsEmployeeByEmail(String email);
 
 }

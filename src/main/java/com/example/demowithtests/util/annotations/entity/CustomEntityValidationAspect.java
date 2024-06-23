@@ -1,6 +1,6 @@
 package com.example.demowithtests.util.annotations.entity;
 
-import com.example.demowithtests.domain.Employee;
+import com.example.demowithtests.model.Employee;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;

@@ -1,6 +1,6 @@
 package com.example.demowithtests;
 
-import com.example.demowithtests.web.EmployeeController;
+import com.example.demowithtests.controller.EmployeeController;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

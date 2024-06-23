@@ -1,7 +1,7 @@
 package com.example.demowithtests.service;
 
-import com.example.demowithtests.domain.Document;
-import com.example.demowithtests.domain.Employee;
+import com.example.demowithtests.model.Document;
+import com.example.demowithtests.model.Employee;
 import com.example.demowithtests.repository.EmployeeRepository;
 import com.example.demowithtests.service.emailSevice.EmailSenderService;
 import com.example.demowithtests.service.history.HistoryService;
@@ -46,6 +46,10 @@ public class EmployeeServiceBean implements EmployeeService {
     @ActivateCustomAnnotations({Name.class, ToLowerCase.class})
     // @Transactional(propagation = Propagation.MANDATORY)
     public Employee create(Employee employee) {
+        if (employeeRepository.existsEmployeeByEmail(employee.getEmail())) {
+            throw new RuntimeException("Employee with email " + employee.getEmail() + " already exists");
+        }
+
         return employeeRepository.save(employee);
         //return employeeRepository.saveAndFlush(employee);
     }
@@ -213,6 +217,11 @@ public class EmployeeServiceBean implements EmployeeService {
     public List<Employee> filterByCountry(String country) {
         return employeeRepository.findEmployeesByCountry(country);
     }
+
+    @Override
+    public Integer filterCountEmployeesByCountry(String country) {
+        return employeeRepository.countEmployeesByCountry(country);
+    };
 
     @Override
     public Set<String> sendEmailsAllUkrainian() {

@@ -1,6 +1,6 @@
-package com.example.demowithtests.web.document;
+package com.example.demowithtests.controller.document;
 
-import com.example.demowithtests.domain.Document;
+import com.example.demowithtests.model.Document;
 
 
 public interface DocumentResource {

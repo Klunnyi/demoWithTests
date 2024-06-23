@@ -1,4 +1,4 @@
-package com.example.demowithtests.web;
+package com.example.demowithtests.controller;
 
 import com.example.demowithtests.service.fillDataBase.LoaderService;
 import lombok.AllArgsConstructor;

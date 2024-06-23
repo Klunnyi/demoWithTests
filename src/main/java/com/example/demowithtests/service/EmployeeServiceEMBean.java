@@ -1,6 +1,6 @@
 package com.example.demowithtests.service;
 
-import com.example.demowithtests.domain.Employee;
+import com.example.demowithtests.model.Employee;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.transaction.Transactional;

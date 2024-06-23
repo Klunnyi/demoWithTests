@@ -1,6 +1,6 @@
 package com.example.demowithtests.repository;
 
-import com.example.demowithtests.domain.History;
+import com.example.demowithtests.model.History;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

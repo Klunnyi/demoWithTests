@@ -1,6 +1,6 @@
-package com.example.demowithtests.web.document;
+package com.example.demowithtests.controller.document;
 
-import com.example.demowithtests.domain.Document;
+import com.example.demowithtests.model.Document;
 import com.example.demowithtests.service.document.DocumentService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -37,4 +37,6 @@ public class DocumentController implements DocumentResource {
     public Document getDocumentById(@PathVariable Integer id) {
         return documentService.getById(id);
     }
+
+
 }

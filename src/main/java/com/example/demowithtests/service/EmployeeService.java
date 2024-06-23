@@ -1,7 +1,7 @@
 package com.example.demowithtests.service;
 
-import com.example.demowithtests.domain.Document;
-import com.example.demowithtests.domain.Employee;
+import com.example.demowithtests.model.Document;
+import com.example.demowithtests.model.Employee;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -56,6 +56,8 @@ public interface EmployeeService {
     Optional<String> findEmails();
 
     List<Employee> filterByCountry(String country);
+
+    Integer filterCountEmployeesByCountry(String country);
 
     Set<String> sendEmailsAllUkrainian();
 

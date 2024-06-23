@@ -1,6 +1,6 @@
 package com.example.demowithtests.service.document;
 
-import com.example.demowithtests.domain.Document;
+import com.example.demowithtests.model.Document;
 
 public interface DocumentService {
 

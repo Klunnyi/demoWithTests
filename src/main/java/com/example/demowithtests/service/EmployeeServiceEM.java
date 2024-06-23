@@ -1,6 +1,6 @@
 package com.example.demowithtests.service;
 
-import com.example.demowithtests.domain.Employee;
+import com.example.demowithtests.model.Employee;
 
 import java.util.List;
 import java.util.Set;
