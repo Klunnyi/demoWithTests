@@ -40,8 +40,8 @@ public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
             "where users.gender = :gender and addresses.country = :country", nativeQuery = true) */
     List<Employee> findByGender(String gender, String country);
 
-    @Query(value = "SELECT * FROM users WHERE SUBSTRING(country, 1, 1) = LOWER(SUBSTRING(country, 1, 1))",
-            nativeQuery = true)
+//    @Query(value = "SELECT * FROM users WHERE SUBSTRING(country, 1, 1) = LOWER(SUBSTRING(country, 1, 1))", nativeQuery = true)
+    @Query("SELECT e FROM Employee e WHERE FUNCTION('SUBSTRING', e.country, 1, 1) = LOWER(FUNCTION('SUBSTRING', e.country, 1, 1))")
     List<Employee> findAllByCountryStartsWithLowerCase();
 
     @Query(value = "SELECT * FROM users WHERE country NOT IN :countries", nativeQuery = true)

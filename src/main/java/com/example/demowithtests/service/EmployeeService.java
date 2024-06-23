@@ -59,6 +59,8 @@ public interface EmployeeService {
 
     Integer filterCountEmployeesByCountry(String country);
 
+    List<Employee> filterAllByCountryStartsWithLowerCase();
+
     Set<String> sendEmailsAllUkrainian();
 
     List<Employee> findByNameContaining(String name);

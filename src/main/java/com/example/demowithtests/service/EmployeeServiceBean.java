@@ -224,6 +224,11 @@ public class EmployeeServiceBean implements EmployeeService {
     };
 
     @Override
+    public List<Employee> filterAllByCountryStartsWithLowerCase() {
+        return employeeRepository.findAllByCountryStartsWithLowerCase();
+    }
+
+    @Override
     public Set<String> sendEmailsAllUkrainian() {
         var ukrainians = employeeRepository.findAllUkrainian().orElseThrow(() -> new EntityNotFoundException("Employees from Ukraine not found!"));
         var emails = new HashSet<String>();
